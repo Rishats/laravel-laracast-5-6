@@ -13,6 +13,11 @@ use Illuminate\Foundation\Inspiring;
 |
 */
 
+/**
+ * New Collision Reporting.
+ * Just write in console: php artisan inspire.
+ */
 Artisan::command('inspire', function () {
+    throw new Exception('Heyy!!');
     $this->comment(Inspiring::quote());
 })->describe('Display an inspiring quote');
