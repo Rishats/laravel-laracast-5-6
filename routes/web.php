@@ -11,10 +11,10 @@
 |
 */
 
-Route::get('/', function () {
+Route::middleware('throttle:10,1')->get('/', function () {
     return view('welcome');
 });
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::middleware('throttle:rate_limit,1')->get('/home', 'HomeController@index')->name('home');

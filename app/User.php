@@ -10,6 +10,14 @@ class User extends Authenticatable
     use Notifiable;
 
     /**
+     * The atrribute throttle incoming requests for Users.
+     * 
+     * You can use in web.php
+     * Route::middleware('throttle:rate_limit,1')->get(....)
+     */
+    public $rate_limit = 2;
+
+    /**
      * The attributes that are mass assignable.
      *
      * @var array
