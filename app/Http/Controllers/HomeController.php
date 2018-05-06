@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\Auth;
 
 class HomeController extends Controller
 {
@@ -26,5 +27,20 @@ class HomeController extends Controller
     {
         Log::emergency('TEST ERROR!');
         return view('home');
+         
+    }
+    
+    /**
+     * Logout others devices and create new provided password.
+     * /logoutOthers/your_new_password
+     *
+     * @param [string] $password
+     * @return redirect()
+     */
+    public function logoutOthers($password)
+    {
+        auth()->logoutOtherDevices($password);
+        
+        return redirect('/');
     }
 }

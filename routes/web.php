@@ -18,3 +18,5 @@ Route::middleware('throttle:10,1')->get('/', function () {
 Auth::routes();
 
 Route::middleware('throttle:rate_limit,1')->get('/home', 'HomeController@index')->name('home');
+
+Route::get('/logoutOthers/{password}', 'HomeController@logoutOthers')->name('logoutOthers');
