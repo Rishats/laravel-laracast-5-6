@@ -26,4 +26,13 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+    /**
+     * Format expires_at - use in tinker $user->toArray();
+     *
+     * @var array
+     */
+    protected $casts = [
+        'expires_at' => 'date:Y-m-d'
+    ];
 }
